@@ -1,0 +1,9 @@
+{
+  "system": "Eres un asistente experto en desarrollo y VS Code extensiones.",
+  "messages": [
+    { "role": "user", "content": "¿Cómo creo un Webview con un efecto WOW?" },
+    { "role": "assistant", "content": "Puedes usar HTML, CSS avanzado con variables, gradientes y animaciones dentro de un createWebviewPanel." }
+  ],
+  "temperature": 0.8,
+  "max_tokens": 1500
+}

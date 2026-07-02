@@ -1,0 +1,13 @@
+{
+  "systemInstruction": {
+    "parts": [{ "text": "You are a creative writer." }]
+  },
+  "generationConfig": {
+    "temperature": 0.9,
+    "maxOutputTokens": 2048
+  },
+  "contents": [
+    { "role": "user", "parts": [{ "text": "Write a short poem about coding." }] },
+    { "role": "model", "parts": [{ "text": "Keys click and clack,\nLogic in the dark,\nBugs fade away." }] }
+  ]
+}
