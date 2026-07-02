@@ -5,7 +5,7 @@
   "description": "Migrate AI agents between Claude, Gemini, Copilot, etc.",
   "license": "MIT",
   "repository": { "type": "git", "url": "https://github.com/rncantos/AgentMigrator" },
-  "version": "0.0.12",
+  "version": "0.0.13",
   "icon": "icon.jpg",
   "engines": {
     "vscode": "^1.80.0"
@@ -19,9 +19,61 @@
     "commands": [
       {
         "command": "agent-migrator.migrate",
-        "title": "AgentMigrator: Migrate AI Agent"
+        "title": "AgentMigrator: Migrate AI Agent",
+        "icon": "$(sync)"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "agent-migrator.migrate",
+        "key": "ctrl+alt+m",
+        "mac": "cmd+alt+m",
+        "when": "editorFocus"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "agent-migrator.migrate",
+          "when": "resourceExtname == .json",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "agent-migrator.migrate",
+          "when": "resourceExtname == .json",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Agent Migrator",
+      "properties": {
+        "agentMigrator.defaultOrigin": {
+          "type": "string",
+          "enum": ["Claude", "Gemini", "Copilot", "None"],
+          "default": "Claude",
+          "description": "Default Origin AI to select in the migration panel."
+        },
+        "agentMigrator.defaultTarget": {
+          "type": "string",
+          "enum": ["Claude", "Gemini", "Copilot", "None"],
+          "default": "Gemini",
+          "description": "Default Target AI to select in the migration panel."
+        },
+        "agentMigrator.strictValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable strict schema validation before generating output."
+        },
+        "agentMigrator.ui.enableWowEffects": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable premium glassmorphism and neon animations in the Webview."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
